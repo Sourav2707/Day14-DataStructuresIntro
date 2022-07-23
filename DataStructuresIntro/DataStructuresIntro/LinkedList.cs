@@ -11,21 +11,28 @@ namespace DataStructuresIntro
         public Node head;
         public void Add(int data)
         {
-            Node node = new Node(data); //creating an object of Node and pushing the data to that object(node)
-            if(this.head == null) 
-            {
-                this.head = node; // if the head is null, the data in node will be pushed to head
-            }
+            /*            Node node = new Node(data); //creating an object of Node and pushing the data to that object(node)
+                        if(this.head == null) 
+                        {
+                            this.head = node; // if the head is null, the data in node will be pushed to head
+                        }
+                        else
+                        {
+                            Node temp = head; //else the head data is pushed to temp. where as head is null. So temp is null.
+                            while (temp.next != null)
+                            {
+                                temp = temp.next;
+                            }
+                            temp.next = node;
+                        }
+                        Console.WriteLine($"Added {node.data} to the list");*/
+            Node node = new Node(data); //here I'm using stack as the UC2 condition requests that sequence
+            if (this.head == null)
+                this.head = null;
             else
-            {
-                Node temp = head; //else the head data is pushed to temp. where as head is null. So temp is null.
-                while (temp.next != null)
-                {
-                    temp = temp.next;
-                }
-                temp.next = node;
-            }
-            Console.WriteLine($"Added {node.data} to the list");
+                node.next = this.head;
+            this.head = node;
+            Console.WriteLine($"Added {data} to the list");
         }
         public void Display()
         {
