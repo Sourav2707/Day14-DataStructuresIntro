@@ -29,16 +29,16 @@ namespace DataStructuresIntro
         }
         public void Display()
         {
-            Node temp = this.head;
+            Node temp = this.head; //pushing head data to temp. if head data is null the temp will be null and it will show as empty
             if (temp == null)
             {
                 Console.WriteLine("Linked list is empty");
                 return;
             }
-            while (temp != null)
+            while (temp != null) //if the head has some data it will be pushed to temp and shows the data
             {
                 Console.Write(temp.data + " ");
-                temp = temp.next;
+                temp = temp.next; //moves to next poniter unless temp is null
             }
         }
     }
