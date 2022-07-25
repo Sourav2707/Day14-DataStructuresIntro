@@ -27,17 +27,16 @@ namespace DataStructuresIntro
             }
             Console.WriteLine($"Added {node.data} to the list");
         }
-        public void AddFront(int data) // add front to the list
+        public void AddLast(int data) // add last to the list
         {
             Node node = new Node(data);
-            if (this.head == null) //head has the value 70 hence else part will execute
-                this.head = null;
-            else
-            {
-                node.next = this.head; //next reference is fed with 70 so the 30 will sit front of 70
-                this.head = node;
+            Node temp = head;
+            while (temp.next != null)
+            { 
+                temp = temp.next;
             }
-            Console.WriteLine($"Added {node.data} to the front");
+            temp.next = node; // next reference is fed with next node data
+            Console.WriteLine($"Added {node.data} to the last");
         }
         public void Display()
         {
