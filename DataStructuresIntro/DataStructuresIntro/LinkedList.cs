@@ -27,30 +27,13 @@ namespace DataStructuresIntro
             }
             Console.WriteLine($"Added {node.data} to the list");
         }
-        public void RemoveLast() // remove the last node in the list
+        public void RemoveFirst() // remove the first node in the list
         {
             if (this.head == null)
             {
                 Console.WriteLine("Empty linked list");
             }
-            else
-            {
-                Node temp = this.head;
-                Node find = null;
-                while (temp.next != null)
-                {
-                    find = temp;
-                    temp = find.next;
-                }
-                if(find == null)
-                {
-                    this.head = null;
-                }
-                else 
-                { 
-                    find.next = null; 
-                }
-            }
+            this.head = this.head.next;
             Console.WriteLine("removed the last node from the list");
         }
         public void Display()
