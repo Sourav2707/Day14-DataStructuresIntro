@@ -27,25 +27,31 @@ namespace DataStructuresIntro
             }
             Console.WriteLine($"Added {node.data} to the list");
         }
-        public void AddMiddle(int data) // add niddle to the list
+        public void RemoveLast() // remove the last node in the list
         {
-            Node node = new Node(data);
-            if(this.head == null)
-                this.head = node;
+            if (this.head == null)
+            {
+                Console.WriteLine("Empty linked list");
+            }
             else
             {
                 Node temp = this.head;
-                Node middle = this.head;
-                while (temp.next != null && temp.next.next != null)
+                Node find = null;
+                while (temp.next != null)
                 {
-                    temp = temp.next.next;
-                    middle = temp.next;
+                    find = temp;
+                    temp = find.next;
                 }
-                node.next = middle.next;
-                middle.next = node;
-
+                if(find == null)
+                {
+                    this.head = null;
+                }
+                else 
+                { 
+                    find.next = null; 
+                }
             }
-            Console.WriteLine($"Added {node.data} to the middle");
+            Console.WriteLine("removed the last node from the list");
         }
         public void Display()
         {
