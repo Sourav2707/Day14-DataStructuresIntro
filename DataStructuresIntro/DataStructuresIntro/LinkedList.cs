@@ -103,7 +103,17 @@ namespace DataStructuresIntro
                 Console.WriteLine($"\nDeleted {node.data} from position {position}");
             }
         }
-
+        public void Size()
+        {
+            Node temp = head;
+            int count = 0;
+            while (temp != null)
+            {
+                count++;
+                temp = temp.next;
+            }
+            Console.WriteLine($"The size of the linked list is {count}");
+        }
         public void Display()
         {
             Node temp = this.head; //pushing head data to temp. if head data is null the temp will be null and it will show as empty
