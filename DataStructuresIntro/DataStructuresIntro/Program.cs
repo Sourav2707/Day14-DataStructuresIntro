@@ -7,5 +7,5 @@ list.Add(30);
 list.Add(70);
 list.Display();
 list.Find(30);
-list.InsertAtParticularPosition(3, 40);
+list.InsertAtParticularPosition(list.count + 1, 40);
 list.Display();
