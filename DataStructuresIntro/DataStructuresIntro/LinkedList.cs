@@ -8,6 +8,7 @@ namespace DataStructuresIntro
 {
     internal class LinkedList
     {
+        public int count;
         public Node head;
         public void Add(int data)
         {
@@ -29,7 +30,6 @@ namespace DataStructuresIntro
         }
         public void Find(int data) // remove the last node in the list
         {
-            int count = 0;
             int found = 0;
             Node node = new Node(data);
             node = this.head;
@@ -67,7 +67,7 @@ namespace DataStructuresIntro
                 Node newNode = node;
                 newNode.next = temp;
                 head = newNode;
-                Console.WriteLine($"Inserted {newNode.data}");
+                Console.WriteLine($"Inserted {newNode.data} at position {position}");
             }
             else
             {
@@ -79,9 +79,29 @@ namespace DataStructuresIntro
                 Node newNode = node;
                 newNode.next = temp.next;
                 temp.next = newNode;
-                Console.WriteLine($"Inserted {newNode.data}");
+                Console.WriteLine($"Inserted {newNode.data} at position {position}");
             }
             return head;
+        }
+        public void Delete(int position, int data)             //deleting node at a particular position
+        {
+            Node node = new Node(data);
+            Node temp = head;
+            int n = 1;
+            if (head == null)
+            {
+                Console.WriteLine("LinkedList is empty");
+            }
+            else
+            {
+                while (n != (position - 1))
+                {
+                    temp = temp.next;
+                    n++;
+                }
+                temp.next = temp.next.next;
+                Console.WriteLine($"\nDeleted {node.data} from position {position}");
+            }
         }
 
         public void Display()
