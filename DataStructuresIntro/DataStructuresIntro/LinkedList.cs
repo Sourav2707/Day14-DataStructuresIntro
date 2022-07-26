@@ -55,7 +55,35 @@ namespace DataStructuresIntro
                 }
             }
         }
-         
+        public Node InsertAtParticularPosition(int position, int data)
+        {
+            int n = 1;
+            Node node = new Node(data);
+            Node temp = head;
+            if (position < 1)
+                Console.WriteLine("Invalid position");
+            else if (position == 1)
+            {
+                Node newNode = node;
+                newNode.next = temp;
+                head = newNode;
+                Console.WriteLine($"Inserted {newNode.data}");
+            }
+            else
+            {
+                while (n != position - 1) //
+                {
+                    temp = temp.next;
+                    n++;
+                }
+                Node newNode = node;
+                newNode.next = temp.next;
+                temp.next = newNode;
+                Console.WriteLine($"Inserted {newNode.data}");
+            }
+            return head;
+        }
+
         public void Display()
         {
             Node temp = this.head; //pushing head data to temp. if head data is null the temp will be null and it will show as empty
